@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="../static/css/style.css"> <!-- 根据需要添加CSS样式 -->
+</head>
+<body>
+    <header>
+        {% if current_user.is_authenticated %}
+            <p>欢迎，{{ current_user.username }}!</p>
+            <button onclick="location.href='/auth/logout'">登出</button>
+        {% else %}
+            <button onclick="location.href='/auth/login'">登录</button>
+        {% endif %}
+    </header>
+    <div id="current-time"></div>
+    <nav>
+        <ul>
+            <li><a href="/blog">个人博客</a></li>
+            <li><a href="/finance">财务管理</a></li>
+            <li><a href="/growth">成长目标</a></li>
+            <li><a href="/reminder">日程提醒</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>热门博客</h2>
+        <div id="hot-blogs">
+            <!-- Dynamically load hot blogs here -->
+            <article>
+                <h3>热门博客1</h3>
+                <p>This is a summary of the blog post content...</p>
+                <a href="/blog/1">阅读更多</a>
+            </article>
+            <article>
+                <h3>热门博客2</h3>
+                <p>This is a summary of the blog post content...</p>
+                <a href="/blog/2">阅读更多</a>
+            </article>
+            <!-- Add more hot blog posts as needed -->
+        </div>
+    </main>
+    <footer>
+        <!-- Footer content here -->
+    </footer>
+    <script src="../static/js/current_time.js"></script> <!-- 根据需要添加JavaScript -->
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+</body>
+</html>

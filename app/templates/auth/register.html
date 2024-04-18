@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="../static/css/style.css"> <!-- 确保这里的路径正确指向你的CSS文件 -->
+</head>
+<body>
+    <div class="container"> <!-- 使用 container 类来利用之前定义的居中样式 -->
+        <div class="form-box"> <!-- form-box 为表单提供边框、背景、阴影等样式 -->
+            <h2>快速注册</h2>
+            <form action="/auth/register" method="post">
+                <div class="form-group">
+                    <label for="username">用户名:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">确认密码:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <input type="submit" value="注册"> <!-- 修改了按钮样式 -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+{#                    {{ form.csrf_token }}#}
+            </form>
+            <div class="help-links"> <!-- 添加了类 help-links 来为下面的链接提供样式 -->
+                <p>已经有账号了? <a href="/auth/login">点击以登录</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

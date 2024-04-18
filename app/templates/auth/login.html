@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../static/css/style.css"> <!-- 确保这里的路径正确指向你的CSS文件 -->
+</head>
+<body>
+    <div class="container"> <!-- 使用 container 类来利用之前定义的居中样式 -->
+        <div class="form-box"> <!-- form-box 为表单提供边框、背景、阴影等样式 -->
+            <h2>登录</h2>
+            <form action="/auth/login" method="post">
+                <div class="form-group">
+                    <label for="email">邮箱:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="remember_me" name="remember_me">
+                    <label for="remember_me">记住我</label>
+                </div>
+                <input type="submit" value="登录"> <!-- 修改了按钮样式 -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            </form>
+            <div class="help-links"> <!-- 添加了类 help-links 来为下面的链接提供样式 -->
+                <p>还没有账号? <a href="/auth/register">现在注册</a></p>
+                <p><a href="/auth/forgot-password">忘记密码?</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
